@@ -1,0 +1,53 @@
+Exo1:
+Question1. Definissions:
+    . un état: c'est une situation dans laquelle le solveur peut se retrouver à un moment donnée
+    .L’espace d’état: S est l’ensemble d’états qui sont accessibles depuis l’état initial s0 par une s ´equence d’actions quelconque
+    .action: Elle correspond a une prise de décisionméné par le solveur face à une situation donnée
+    .fonction de succession: c'est une fonction qui definit l'état resultant de l'exécution d'une action dans un état
+    . graphe d’états: c'est un graphe orienté où:
+     Les nœuds représentent les différents états d'un système 
+     les arcs entre les nœuds indiquent une relation entre ces états
+Question2:
+    État du monde réel:
+    C’est la ituations réelles, complète et exacte du monde.
+    Il contient tous les détails possibles, même ceux inobservables, inutiles, ou que l’agent ne peut pas représenter.
+
+    Description d’état Description abstraite d’un état réel
+    Elle est volontairement simplifié, abstrait, fini, et adapté à la résolution du problème.
+
+    utilité:
+    Permettre la modélisation,Réduire la complexité,Adapter la représentation au problème
+
+Exo2:
+Question1
+    soit s=(x,y) où x∈{0,1,2,3,4,5} et y∈{0,1,2,3}
+Question 2
+    Action: A(x,y)
+        a1 remplir y (0,3-y)
+        a2 remplir x (5-x, 0)
+        a3 vider y (0,-y)
+        a4 vider x(-x,0)
+        a5 verser x dans y (-min{x,3-y}+min{x,3-y})
+        a6 verser y dans x (min{y,5-x}-min{y,5-x})
+    fonction de succession:
+        succ(s,a)= s+a avec a ∈ {a1,a2,a3,a4,a5,a6}
+    ensemble d'état terminaux:
+        T={(x,y)∈ S: x=4}
+
+Question3
+Chaque état est un couple (x, y) :
+6 valeurs possibles pour x(0,1,2,3,4,5)
+4 valeurs possibles pour y (0,1,2,3)
+
+Donc :
+∣S∣=4×6=24 états possibles
+
+Question4 & 5:meilleures solutions
+    1. (0,0) : état initial
+    2. (5,0) : a2
+    3. (2,3) : a5
+    4. (2,0) : a3
+    5. (0,2) : a6
+    6. (5,2) : a2
+    7. (4,3) : a5
+    8. (4,0) : a3
