@@ -51,3 +51,25 @@ Question4 & 5:meilleures solutions
     6. (5,2) : a2
     7. (4,3) : a5
     8. (4,0) : a3
+
+exo3:
+Question1. Modelisation
+    Initialisation
+    M[i,j] matrice avec mij={0 si case non visite
+                                1 si case visité
+                                2 case actuelle}
+    -Actions :
+        A={(+/-2, +/-1) (+/-1, +/-2)}  8 mouvements possibles
+
+    -Fonction de succession
+        succ(s,a): si s+a deja visite -> echec
+        si s+a en dehors du plateau -> echec
+
+    État terminal
+        Toutes les cases de la grille sont visitées
+        |visited| = n × n (toutes les cases sont 1)
+
+    Coût
+        Coût uniforme = 1 par déplacement
+        c(s, a, s') = 1
+Question2. 
