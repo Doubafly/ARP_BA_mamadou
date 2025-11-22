@@ -72,4 +72,8 @@ Question1. Modelisation
     Coût
         Coût uniforme = 1 par déplacement
         c(s, a, s') = 1
-Question2. 
+Question 2 : Taille de l'espace d'états
+Nombre maximum d'états = nombre de sous-ensembles de cases visitées × positions = n² × 2^(n²) (très large borne supérieure)
+Question3 : voir le code 
+Question4 : a partir de 6x6 la machine s'arrete 
+Question5 : Nombre de parcours trouvés : 304 implementer dans le code 
