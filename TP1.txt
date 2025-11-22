@@ -1,5 +1,5 @@
 Exo1:
-Question1. Definissions:
+Question1: Definissions:
     . un état: c'est une situation dans laquelle le solveur peut se retrouver à un moment donnée
     .L’espace d’état: S est l’ensemble d’états qui sont accessibles depuis l’état initial s0 par une s ´equence d’actions quelconque
     .action: Elle correspond a une prise de décisionméné par le solveur face à une situation donnée
@@ -17,7 +17,6 @@ Question2:
 
     utilité:
     Permettre la modélisation,Réduire la complexité,Adapter la représentation au problème
-
 Exo2:
 Question1
     soit s=(x,y) où x∈{0,1,2,3,4,5} et y∈{0,1,2,3}
@@ -38,7 +37,6 @@ Question3
 Chaque état est un couple (x, y) :
 6 valeurs possibles pour x(0,1,2,3,4,5)
 4 valeurs possibles pour y (0,1,2,3)
-
 Donc :
 ∣S∣=4×6=24 états possibles
 
@@ -52,12 +50,12 @@ Question4 & 5:meilleures solutions
     7. (4,3) : a5
     8. (4,0) : a3
 
-exo3:
+Exo3:
 Question1. Modelisation
     Initialisation
     M[i,j] matrice avec mij={0 si case non visite
-                                1 si case visité
-                                2 case actuelle}
+                            1 si case visité
+                            2 case actuelle}
     -Actions :
         A={(+/-2, +/-1) (+/-1, +/-2)}  8 mouvements possibles
 
@@ -73,7 +71,41 @@ Question1. Modelisation
         Coût uniforme = 1 par déplacement
         c(s, a, s') = 1
 Question 2 : Taille de l'espace d'états
-Nombre maximum d'états = nombre de sous-ensembles de cases visitées × positions = n² × 2^(n²) (très large borne supérieure)
+Nombre maximum d'états = nombre de sous-ensembles de cases visitées × positions = n² × 2^(n²) 
+
 Question3 : voir le code 
 Question4 : a partir de 6x6 la machine s'arrete 
-Question5 : Nombre de parcours trouvés : 304 implementer dans le code 
+Question5 : Nombre de parcours trouvés :304 implementer dans le code 
+
+Exo4 
+Question1:
+    état: est le triplet (m, c, b) où :
+    m ∈ {0,1,2,3} = nombre de missionnaires à gauche,
+    c ∈ {0,1,2,3} = nombre de cannibales à gauche,
+    b ∈ {0,1} = position du bateau (0 = gauche, 1 = droite).
+
+    État initial : (3,3,0) (tout le monde à gauche, bateau à gauche).
+
+    Actions (transitions): embarquer i missionnaire(s) et j cannibale(s) avec 1 ≤ i+j ≤ 2 et traverser vers l’autre rive.
+    Si le bateau est à gauche (b=0) on applique (m, c, 0) -> (m - i, c - j, 1).
+    Si à droite (b=1) on applique (m, c, 1) -> (m + i, c + j, 0).
+    sur chaque rive, les missionnaires ne doivent jamais être en infériorité numérique face aux cannibales (sauf si aucun missionnaire présent) :
+
+    Fonction de succession : pour un état donné, l’ensemble des états obtenus en appliquant toutes les actions possibles qui produisent des états valides selon la contrainte ci-dessus.
+    
+    État terminal : (0,0,1) (tout le monde à droite, bateau à droite).
+
+    Graphe d’états
+    Nœuds : tous les états valides (m,c,b).
+    Arêtes orientées : actions autorisées  entre états.
+
+    Coût
+        Coût uniforme = 1 par déplacement
+
+Question2: les gens ont du mal a cause de ces facteurs:
+        .Il faut penser simultanément aux deux rives et comprendre que certaines actions régressives (retours du bateau) sont nécessaires pour avancer.
+        .Les gens essayent souvent de maximiser le nombre de personnes transportées à chaque traversée sans anticiper que cela crée des configurations bloquantes plus tard.
+        .Nécessité d’anticiper plusieurs coups la solution requiert planification multi-étapes et accepter des états intermédiaires où l’on recule pour permettre une progression globale.
+        .Sans méthode systématique on tourne en rond (répétitions d’états), d’où la difficulté humaine.
+
+Question3: voir code MissionnairesCannibales.java
