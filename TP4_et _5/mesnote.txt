@@ -1,0 +1,18 @@
+Question1:
+- Ensemble des états : S
+    Un état est défini par :la ville actuelle, l’ensemble des villes déjà visitées
+    S={(v,Vvisite​)∣v∈V,Vvisite​ inclut dans V}
+-État initial : s₀
+    On peut démarrer dans n’importe quelle capitale donc une ville choisie comme point de départ 
+    (par exemple la première du fichier).
+-Les d’actions possibles sont: 
+    Depuis La ville actuelle le déplacement vers n’importe quelle ville non encore visitée.
+-Fonction successeur : succ(s, a)
+    Si on exécute l’action aller à u depuis la ville actuelle pour visiter u 
+    L’état résultant correspond à la nouvelle ville visitée.
+-États terminaux : T
+    L'etat pour le quel tous les villes sont visitées exactement une fois
+-coût : 
+Le coût de l’action consistant à aller de la ville U à la ville v
+    v est la distance euclidienne : La formule present dans l'enoncer 
+    Le coût total d’un chemin est la somme des coûts intermédiaires.
