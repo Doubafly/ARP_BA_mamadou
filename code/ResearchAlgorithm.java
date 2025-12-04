@@ -1,24 +1,25 @@
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ResearchAlgorithm {
+    // pour le tp 3 : Depth-First Search
 
-    public static Node search(KnightsTourProblem problem){
+    public static Node search(KnightsTourProblem problem) {
         int counter = 0;
         List<Node> frontier = new LinkedList<>();
         Node root = new Node(problem.initialState(), null, null);
         frontier.add(root);
-        
-        while(!frontier.isEmpty()){
+
+        while (!frontier.isEmpty()) {
             Node currentNode = frontier.remove(0);
             counter += 1;
-            if (problem.isGoalState(currentNode.getState())){
-                System.out.println("Found a solution after evaluating " + counter + " nodes.");
+            if (problem.isGoalState(currentNode.getState())) {
+                System.out.println("Found a solution after evaluating " + counter + "nodes.");
                 return currentNode;
             }
             frontier.addAll(currentNode.expand(problem));
         }
         return null;
     }
-    
 }

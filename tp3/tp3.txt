@@ -1,0 +1,63 @@
+Exercice1:
+    Question1:la différence entre un graphe d’états et l’arbre de recherche
+        Un graphe d’états:C’est une modélisation du problème dont chaque état représente une configuration possible;les arêtes représentent les actions applicables.
+        Le graphe peut :
+            contenir des cycles,
+            ne pas être connexe,
+            ne pas être orienté.
+
+        Alors que l'arbre de recherche: C’est une structure construite par l’algorithme de recherche dont chaque nœud correspond à :
+        un état + des informations supplémentaires (profondeur, parent, coût, etc.).
+        L’arbre de recherche est toujours un arbre donc acyclique, même si le graphe d’états contient des cycles et elle depend de l’algorithme (BFS, DFS…) et de la façon dont la frontière est gérée.
+        En somme:
+        Graphe d’états : représentation abstraite du problème.
+        Arbre de recherche : représentation concrète construite par l’algorithme.
+
+    Question2: Un graphe d’états fini mène-t-il toujours à un arbre de recherche fini ?
+        Non. Car un graphe d’états fini peut générer un arbre de recherche infini, notamment si :
+            il existe des cycles,
+            l’algorithme ne garde aucune mémoire des états visités,
+            ou suit une stratégie qui revisite les mêmes états (DFS notamment).
+
+        Un graphe d’états mène toujours à un arbre de recherche fini si :
+            Il est fini, et sans cycles, ou
+            L’algorithme empêche explicitement de revisiter les états (détection d’états déjà visités).
+
+    Question3:la différence entre un état et un nœud de l’arbre de recherche
+        Un État:C’est une configuration possible du problème déﬁni par les variables du problème (position du cavalier, distribution des cannibales, etc.).
+        Nœud de l’arbre de recherche: est une structure plus riche, créée par l’algorithme il contient un état, mais aussi des métadonnées(profondeur, coût, action utilisée pour l’obtenir,etc...)
+Exo2:
+Question1: L’algorithme implémenté est un parcours en largeur car :
+    L’algorithme utilise une liste frontier comme une file FIFO : le nœud courant est obtenu par remove(0), ce qui retire toujours le premier élément ajouté.
+    Les nouveaux nœuds générés sont ajoutés à la fin de la frontière. Cela correspond exactement à la stratégie du parcours en largeur (BFS) telle que définie dans le cours.
+
+Question2: 
+    Complexité spatiale en 5×5
+        BFS a une complexité spatiale O(b^d).
+        Ici b ≈ 6, d = 24.
+        La mémoire est encore suffisante pour trouver une solution avant explosion.
+
+    Complexité spatiale en 6×6
+        d = 35
+        entièrement impossible à stocker.
+        BFS explose immédiatement : trop de nœuds sur la frontière.
+
+Question3:
+
+Question4: 
+    L'algorithme n’est pas pertinent car la profondeur de solution est très grande et fixée.
+    L’algorithme répète énormément de travail inutile et devient lent pour les grandes grilles.
+
+Question5:
+    Même si DFS est théoriquement complet , dans le cas du tour du cavalier fermé, la profondeur d = n carre rend la recherche beaucoup trop profonde. DFS met un temps prohibitif dès 6×6.
+    DFS_Iterer, qui répète DFS pour toutes les profondeurs 1..d, est encore pire.
+    En pratique, ni DFS ni IDDFS ne permettent de résoudre efficacement un tour fermé sur 6×6, et sont totalement inutilisables pour des tailles supérieures.
+
+Exo3 
+Question1 :
+Le BFs est le plus performant
+Question2:
+
+BFS (memoire) : noeuds = 15,
+DFS (memoire) : noeuds = 12,
+La le dfs avec moin de noeud

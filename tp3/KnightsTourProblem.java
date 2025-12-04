@@ -127,6 +127,8 @@ public class KnightsTourProblem {
         return x >= 0 && x < NB_ROWS && y >= 0 && y < NB_COLS;
     }
 
+    /* ------------------- ACTION INTERN ---------------------- */
+
     class Action {
         public final int dx;
         public final int dy;
